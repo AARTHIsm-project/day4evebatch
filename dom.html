@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple DOM Example</title>
+</head>
+<body>
+
+  <h3>Student Info</h3>
+
+  <input id="studentName" placeholder="Enter name"><br><br>
+
+  <input type="radio" name="gender" value="Male"> Male
+  <input type="radio" name="gender" value="Female"> Female<br><br>
+
+  <p class="info">Hello!</p>
+  <p class="info">Welcome to JavaScript.</p>
+
+  <button onclick="showInfo()">Show Info</button>
+
+  <p id="result"></p>
+
+  <script>
+    function showInfo() {
+      // getElementById
+      let name = document.getElementById("studentName").value;
+
+      // getElementsByName
+      let gender = "";
+      let genders = document.getElementsByName("gender");
+      for (let g of genders) {
+        if (g.checked) gender = g.value;
+      }
+
+      // getElementsByClassName
+      let infos = document.getElementsByClassName("info");
+      let msg = infos[0].innerText + " " + infos[1].innerText;
+
+      document.getElementById("result").innerText =
+        "Name: " + name + "\nGender: " + gender + "\nMessage: " + msg;
+    }
+  </script>
+
+</body>
+</html>
